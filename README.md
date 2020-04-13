@@ -8,9 +8,16 @@ If you want more details, please refer to the series of blog posts that I wrote 
 ## Project structure
 
 ```
-project
+2048AI
 │
-└───To come...
+└────── data
+└────── model
+│       │
+│       └────── Game.py
+│       └────── Grid.py
+│       └────── History.py
+└────── Main.py
+└────── Constants.py
 ```
 
 ## Installation
