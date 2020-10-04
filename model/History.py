@@ -67,7 +67,7 @@ class History:
 
     def something_moved(self, previous_state):
         """
-        Method to determine if at least on tile has moved between two Grid snapshots (current, previous)
+        Method to determine if at least one tile has moved between two Grid snapshots (current, previous)
 
         @param previous_state: the previous Grid state (or snapshot) in inline str representation format
         @type previous_state: str
