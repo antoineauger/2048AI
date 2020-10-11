@@ -5,6 +5,7 @@ from pathlib import Path
 
 import Constants
 from Constants import States
+from model.Grid import Grid
 from model.History import History
 
 
@@ -123,3 +124,26 @@ class Game:
             f.write("{} {}\n".format(self.grid.nb_rows, self.grid.nb_columns))
             f.write(self.history.__repr__())
             f.flush()
+
+    @staticmethod
+    def load_game(log_file_path):
+        """
+        Static method to load a 2048 game log to visualize it through the GUI
+
+        @param log_file_path: the path of the log to load
+        @return: a Game object that contains all the game history (tile positions, directions and score)
+        @rtype: Game
+        """
+        with open(log_file_path, 'r') as f:
+            nb_rows_columns = int(f.readline().strip().split(' ')[0])
+            grid = Grid(nb_rows_columns)
+            game = Game(grid, init_grid_with_two_tiles=False)
+            line = f.readline()
+            while line:
+                l_split = line.strip().split(' ')
+                if len(l_split) > 3:
+                    game.history.score_history.append(l_split[1])
+                    game.history.grid_history.append(' '.join(l_split[2:-1]))
+                    game.history.direction_state_history.append(l_split[-1])
+                line = f.readline()
+        return game

@@ -22,7 +22,7 @@ while not game.ended_game:  # While the game is not finished
 print("Full History:")
 print(game.history)
 
-base_path = path.join(Constants.DATA_DIR_NAME,
-                      'replays',
-                      '{}_{}'.format(Constants.GRID_NB_ROWS_COLUMNS, Constants.GRID_NB_ROWS_COLUMNS))
-game.save_game(base_path=base_path)
+replay_dir = path.join(Constants.DATA_DIR_NAME,
+                       'replays',
+                       '{}_{}'.format(Constants.GRID_NB_ROWS_COLUMNS, Constants.GRID_NB_ROWS_COLUMNS))
+game.save_game(base_path=replay_dir)

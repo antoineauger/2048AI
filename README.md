@@ -1,9 +1,10 @@
 # 2048AI
 
-Personnal project to illustrate how some concepts from Artificial Intelligence (AI) can be applied to the 2048 video game.
-If you want more details, please refer to the series of blog posts that I wrote on my personnal blog:
+Personal project to illustrate how some concepts from Artificial Intelligence (AI) can be applied to the 2048 video game.
+If you want more details, please refer to the series of blog posts that I wrote on my personal blog:
 1. [Part 1: Presentation](https://antoineauger.fr/blog/2020/03/07/programming-an-ai-based-2048-game-part-1-presentation/)
 2. [Part 2: Game Logic](https://antoineauger.fr/blog/2020/10/04/programming-an-ai-based-2048-game-part-2-game-logic/)
+3. Part 3: Stay tuned!
 
 ## Project structure
 
@@ -17,8 +18,13 @@ If you want more details, please refer to the series of blog posts that I wrote 
 │   │   Grid.py
 │   │   History.py
 │
-│   Main.py
+└───ui/
+│   │   TkConstants.py
+│   │   Window.py
+│
+│   Application.py
 │   Constants.py
+│   Main.py
 ```
 
 ## Prerequisites
@@ -42,6 +48,11 @@ Then, to launch the game, simply type:
 $ python3 Main.py
 ```
 
+If you prefer to play in an interactive manner through the GUI:
+```
+$ python3 Application.py
+```
+
 ## Where are stored my game logs?
 
 By default, your game logs are saved in `data/replays`.
@@ -51,4 +62,4 @@ For instance, all the game logs corresponding to a 4x4 grid size will be saved i
 ## How to use the replay mode?
 
 Replay mode is only available through the GUI.
-More details to come in the next blog post...
+You can import a previously saved 2048-game log file by clicking on `File > Open game...`.
