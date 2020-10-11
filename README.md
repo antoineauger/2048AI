@@ -6,6 +6,8 @@ If you want more details, please refer to the series of blog posts that I wrote 
 2. [Part 2: Game Logic](https://antoineauger.fr/blog/2020/10/04/programming-an-ai-based-2048-game-part-2-game-logic/)
 3. Part 3: Stay tuned!
 
+![2048_gui](/assets/gui_play_mode.png?raw=true "2048 GUI play mode")
+
 ## Project structure
 
 ```
@@ -63,3 +65,7 @@ For instance, all the game logs corresponding to a 4x4 grid size will be saved i
 
 Replay mode is only available through the GUI.
 You can import a previously saved 2048-game log file by clicking on `File > Open game...`.
+
+Then, you can navigate through the game with the directional arrows ( &larr; &rarr; &uarr; &darr; ).
+
+![2048_gui2](/assets/gui_replay_mode.png?raw=true "2048 GUI replay mode")
