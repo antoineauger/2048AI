@@ -112,7 +112,7 @@ $ python3 Application.py
 ```
 
 5. After training, your AI will play until it wins/looses (spoiler: it is most likely to 
-   loose :P ).
+   loose :stuck_out_tongue_winking_eye:).
    When it does, some game stats are displayed before the program ends. 
    
 If you want to precisely see which moves your AI played (although it will not tell you why it decided 
@@ -141,7 +141,7 @@ Process finished with exit code 0
 ```
 
 The question of designing an AI able to always win is, of course, out of the 
-scope of this project :D 
+scope of this project :grin:. 
 
 Nevertheless, you can read my blog post to understand better why your
 AI is (almost) always loosing if you play with a high-target tile (such as 2048).
