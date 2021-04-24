@@ -5,15 +5,22 @@ If you want more details, please refer to the series of blog posts that I wrote 
 1. [Part 1: Presentation](https://antoineauger.fr/blog/2020/03/07/programming-an-ai-based-2048-game-part-1-presentation/)
 2. [Part 2: Game Logic](https://antoineauger.fr/blog/2020/10/04/programming-an-ai-based-2048-game-part-2-game-logic/)
 3. [Part 3: User Interface](https://antoineauger.fr/blog/2021/02/13/programming-an-ai-based-2048-game-part-3-user-interface/)
+4. Part 4: AI concepts and Neural Network (to come)
 
-![2048_gui](/assets/gui_play_mode.png?raw=true "2048 GUI play mode")
+![2048_gui_start_human](/assets/start_human.gif?raw=true "Example of the start of a 2048 game played by human")
 
 ## Project structure
 
 ```
 2048AI/
 │
+└───ai/
+│   │   Layer.py
+│   │   NeuralNetwork.py
+│
 └───data/
+│   └───replays/
+│   └───train_logs/
 │
 └───model/
 │   │   Game.py
@@ -55,6 +62,8 @@ If you prefer to play in an interactive manner through the GUI:
 ```
 $ python3 Application.py
 ```
+
+![2048_gui](/assets/gui_play_mode.png?raw=true "2048 GUI play mode")
 
 ## Where are stored my game logs?
 
