@@ -19,7 +19,7 @@ game = Game(grid, init_grid_with_two_tiles=True)
 directions = [Directions.LEFT, Directions.RIGHT, Directions.UP, Directions.DOWN]
 
 # You can choose between RANDOM, NEURAL and STATS modes
-mode = "STATS"
+mode = "NEURAL"
 
 
 if mode == "RANDOM":  # --------------- RANDOM test ---------------
@@ -32,8 +32,10 @@ elif mode == "NEURAL":  # --------------- NEURAL test ---------------
     nn.add_layer(Layer(16, 4))  # Only one hidden layer
     nn.add_layer(Layer(4, 4))  # Output layer
 
-    train_dir = path.join(Constants.DATA_DIR_NAME, 'train_logs')
-    nn.train_from_directory(directory=train_dir, learning_rate=0.3, max_epochs=400)
+    train_dir = path.join(Constants.DATA_DIR_NAME, Constants.TRAIN_DIR_NAME)
+    nn.train_from_directory(directory=train_dir,
+                            learning_rate=Constants.NEURAL_NET_TRAINING_RATE,
+                            max_epochs=Constants.NEURAL_NET_MAX_EPOCHS)
 
     while not game.ended_game:
         x = np.array(np.mat(game.grid.to_string()))
