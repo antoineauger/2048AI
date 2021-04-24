@@ -7,7 +7,7 @@ If you want more details, please refer to the series of blog posts that I wrote 
 3. [Part 3: User Interface](https://antoineauger.fr/blog/2021/02/13/programming-an-ai-based-2048-game-part-3-user-interface/)
 4. Part 4: AI concepts and Neural Network (to come)
 
-![2048_gui_start_human](/assets/start_human.gif?raw=true "Example of the start of a 2048 game played by human")
+![2048_gui_start_human](/assets/start_human_fast.gif?raw=true "Example of the start of a 2048 game played by human")
 
 ## Project structure
 
