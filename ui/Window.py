@@ -153,7 +153,7 @@ class Window:
         if self.mode == Modes.MODE_PLAY:
             if event.keysym in [v.value for v in Directions]:
                 if not self.game.ended_game:
-                    self.game.play_one_direction(Directions(event.keysym))
+                    self.game.play_one_direction(Directions(event.keysym), 0)
                     self.update_grid()
                 if self.game.ended_game:
                     self.game.save_game(self.base_path)
@@ -164,6 +164,7 @@ class Window:
                 self.game.ended_game = False
                 if len(self.game.history.grid_history) > 1:
                     self.game.history.direction_state_history.pop()
+                    self.game.history.direction_index_history.pop()
                     self.game.history.grid_history.pop()
                     self.game.history.score_history.pop()
                     self.game.round_count -= 1

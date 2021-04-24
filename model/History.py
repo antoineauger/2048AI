@@ -1,6 +1,5 @@
 # coding: utf-8
 import numpy as np
-
 from model.Grid import Grid
 
 
@@ -26,6 +25,7 @@ class History:
         self.grid_history = list()
         self.score_history = list()
         self.direction_state_history = list()
+        self.direction_index_history = list()
 
     def __repr__(self):
         """
@@ -40,6 +40,7 @@ class History:
             str_to_return += "{} ".format(self.score_history[i])
             str_to_return += str(self.grid_history[i])
             str_to_return += " {}".format(self.direction_state_history[i].value)
+            str_to_return += " [{}]".format(self.direction_index_history[i])
             str_to_return += "\n"
         return str_to_return
 
@@ -56,14 +57,17 @@ class History:
         self.grid_history.append(t_str_state)
         self.score_history.append(score)
 
-    def add_direction_or_state(self, direction_or_state):
+    def add_direction_or_state(self, direction_or_state, index_choice):
         """
         Method to add a new direction/state (if win or loss) to this History
 
         @param direction_or_state: the direction that has been played or the final state reached (win/loss)
         @type direction_or_state: Constants.Directions or Constants.States
+        @param index_choice: the index of the chosen direction (0 was the first choice, 3 was the last choice)
+        @type index_choice: int
         """
         self.direction_state_history.append(direction_or_state)
+        self.direction_index_history.append(index_choice)
 
     def something_moved(self, previous_state):
         """
@@ -77,3 +81,41 @@ class History:
         state_a = Grid.from_string(previous_state, self.nb_rows, self.nb_columns)
         state_b = Grid.from_string(self.grid_history[-1], self.nb_rows, self.nb_columns)
         return not np.array_equal(state_a, state_b)
+
+    def print_stats(self):
+        """
+        Method to display various statistics based on a game history
+        """
+        nb_moves = len(self.direction_state_history) - 2
+
+        # We search for the maximum tile obtained
+        max_tile = 0
+        for i in self.grid_history:
+            temp_list = [int(x) for x in i.split(' ')]
+            if max(temp_list) > max_tile:
+                max_tile = max(temp_list)
+
+        # We compute the number of points obtained for each round
+        points_per_round = []
+        for i in range(1, nb_moves+1, 1):
+            points_per_round.append(self.score_history[i+1] - self.score_history[i])
+
+        # We compute the frequencies associated to the directions played
+        freq_choices = {}
+        for i in self.direction_index_history:
+            if i in freq_choices:
+                freq_choices[i] += 1.0
+            else:
+                freq_choices[i] = 1.0
+        freq_choices[0] -= 1.0
+        del freq_choices[-1]
+        for f in freq_choices:
+            freq_choices[f] /= nb_moves
+            freq_choices[f] *= 100.0
+
+        print("Final direction/state: {}".format(self.direction_state_history[-1]))
+        print("Final score: {}".format(self.score_history[-1]))
+        print("Number of rounds: {}".format(len(self.score_history) - 1))
+        print("Max. tile: {}".format(max_tile))
+        print("Avg. points per round: {}".format(np.mean(points_per_round)))
+        print("Choice frequencies: {}".format(freq_choices))

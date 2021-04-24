@@ -176,7 +176,7 @@ class Grid:
         score_to_add = 0
         if direction == Directions.RIGHT:
             for r in range(self.nb_rows):
-                for c in range(self.nb_columns - 1, -1, -1):
+                for c in range(self.nb_columns - 1, 0, -1):
                     if self.grid[r, c] == self.grid[r, c - 1]:
                         self.grid[r, c] *= 2
                         score_to_add += self.grid[r, c]
@@ -197,7 +197,7 @@ class Grid:
                         self.grid[r + 1, c] = 0
         elif direction == Directions.DOWN:
             for c in range(self.nb_columns):
-                for r in range(self.nb_rows - 1, -1, -1):
+                for r in range(self.nb_rows - 1, 0, -1):
                     if self.grid[r, c] == self.grid[r - 1, c]:
                         self.grid[r, c] *= 2
                         score_to_add += self.grid[r, c]
