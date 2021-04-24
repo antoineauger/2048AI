@@ -93,8 +93,8 @@ TRAIN_DIR_NAME = 'train_logs'
 NEURAL_NET_TRAINING_RATE = 0.3
 NEURAL_NET_MAX_EPOCHS = 400
 ```
-If you are new to AI and/or neural networks, I encourage you to read this excellent blog post that explains how to 
-[implement a flexible neural network with backpropagation from scratch](https://blog.zhaytam.com/2018/08/15/implement-neural-network-backpropagation/).
+If you are new to AI and/or neural networks, I encourage you to read [this excellent blog post](https://blog.zhaytam.com/2018/08/15/implement-neural-network-backpropagation/) that explains how to 
+implement a flexible neural network with backpropagation from scratch.
 
 2. Place the game logs that you want to use to train your Neural Network into the `data/train_logs` directory. 
    Make sure that the logs match the dimensions of the Neural Network you want to train.
@@ -111,9 +111,12 @@ mode = "NEURAL"
 $ python3 Application.py
 ```
 
-5. After training, your AI will play until it wins/looses.
-   Some game stats are displayed, the associated replay is also 
-   available in `data/replays/`.
+5. After training, your AI will play until it wins/looses (spoiler: it is most likely to 
+   loose :P ).
+   When it does, some game stats are displayed before the program ends. 
+   
+If you want to precisely see which moves your AI played (although it will not tell you why it decided 
+to play that way/moove), the associated replay is available in `data/replays/`.
 
 ```
 OK - File parsed: data\train_logs\human_1024_1.log
