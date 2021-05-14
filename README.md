@@ -126,7 +126,7 @@ $ python3 Main.py PLAY --game NEURAL
 ```
 
 4. After training, your AI will play until it wins/looses (spoiler: it is most likely to 
-   loose :stuck_out_tongue_winking_eye:).
+   lose :stuck_out_tongue_winking_eye:).
    When it does, some game stats are displayed before the program ends. 
    
 If you want to precisely see which moves your AI played (although it will not tell you why it decided 
@@ -169,7 +169,7 @@ $ python3 Main.py PLAY --game RANDOM
 
 ## How to compute key metrics for a 2048 saved game?
 
-Use the STATS mode alongside with the filepath of the 2048 log that you want to analyze. For instance:
+Use the `STATS` mode alongside with the filepath of the 2048 log that you want to analyze. For instance:
 ```
 $ python3 Main.py STATS --path train_logs/human_2048_1.log
 ```
