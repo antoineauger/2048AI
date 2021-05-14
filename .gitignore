@@ -133,3 +133,4 @@ dmypy.json
 
 # Project-specific
 data/replays/*
+_DO NOT ADD_ analysis/
