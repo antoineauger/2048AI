@@ -1,3 +1,5 @@
+![2048AI_logo](/assets/2048_ai_logo_small.png?raw=true "2048 AI logo")
+
 # 2048AI
 
 Personal project to illustrate how some concepts from Artificial Intelligence (AI) can be applied to the 2048 video game.
